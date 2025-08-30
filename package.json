@@ -18,6 +18,9 @@
     "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "@eslint/eslintrc": "^3",
+    "@hugeicons/core-free-icons": "^1.0.13",
+    "@hugeicons/react": "^1.0.5",
+     "lucide-react": "^0.487.0"
   }
 }
