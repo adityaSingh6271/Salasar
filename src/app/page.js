@@ -1,5 +1,6 @@
 import Navbar from "@/component/Navbar";
-import { Search } from "lucide-react";
+import { Search02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       </video>
 
       {/* Bottom Overlay (gradient fade) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
 
       {/* Navbar */}
       <Navbar />
@@ -25,7 +26,7 @@ export default function Home() {
       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 text-white mt-24">
         <h1
           className="text-7xl md:text-6xl font-light"
-          style={{ fontFamily: "Gambetta, serif" }}
+          style={{ fontFamily: "Gambetta, serif", marginTop:"240px" }}
         >
           SALASAR GROUP – BUILDERS & DEVELOPERS
         </h1>
@@ -33,9 +34,11 @@ export default function Home() {
           className="mt-4 text-5xl italic text-gray-200"
           style={{ fontFamily: "Gambetta, serif" }}
         >
-          Weaving Dreams into Lasting Realities
+          Weaving Dreams into{" "}
+          <span className="text-[#9A9999]">Lasting Legacies</span>
         </h2>
-        <p className="mt-4 max-w-2xl text-sm md:text-base text-gray-300">
+
+        <p className="mt-4 max-w-2xl text-sm md:text-base text-[#9A9999]">
           Craft identities that echo through eternity — strong and luminous.
           From vision to reality, our artisans build with grace and wonder. Lay
           your foundation of magic with Salasar.
@@ -43,7 +46,11 @@ export default function Home() {
 
         {/* Search Bar */}
         <div className="mt-6 w-2xl flex items-center bg-white/90 rounded-full shadow px-6 py-3">
-          <Search size={28} className="text-gray-600" />
+          <HugeiconsIcon
+            className="text-gray-700"
+            style={{ width: "24px", height: "24px" }}
+            icon={Search02Icon}
+          />
           <input
             type="text"
             placeholder="Salasar heights"
