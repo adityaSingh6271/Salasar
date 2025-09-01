@@ -41,27 +41,40 @@
   font-style: italic;
 }
 
+
 /* Gilroy */
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Regular.ttf") format("truetype");
+  src: url("/fonts/OTF/Gilroy-Light.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Bold.ttf") format("truetype");
+  src: url("/fonts/OTF/Gilroy-ExtraBold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Italic.ttf") format("truetype");
+  src: url("/fonts/OTF/Gilroy-Italic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
 
 /* Global body font */
 body {
