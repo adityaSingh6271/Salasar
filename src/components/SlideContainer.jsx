@@ -54,14 +54,14 @@ const SlideContainer = () => {
         <div className="relative overflow-hidden rounded-2xl h-[720px]">
           {/* TRACK (all slides stacked vertically, move with translateY) */}
           <div
-            className="h-full flex flex-col transition-transform duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
+            className="transition-transform duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
             style={{
-              transform: `translateY(-${currentSlide * 100}%)`,
-              height: `${slides.length * 100}%`,
+              transform: `translateY(-${currentSlide * 720}px)`,
+              height: `${slides.length * 720}px`,
             }}
           >
             {slides.map((slide) => (
-              <div key={slide.id} className="h-[720px] w-full flex-shrink-0">
+              <div key={slide.id} className="h-[720px] w-full">
                 {slide.component}
               </div>
             ))}
