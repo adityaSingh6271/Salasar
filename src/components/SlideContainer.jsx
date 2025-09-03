@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import SlideOne from "./SlideOne";
 import SlideTwo from "./SlideTwo";
+import SlideThree from "./SlideThree";
 
 const SlideContainer = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,6 +14,7 @@ const SlideContainer = () => {
   const slides = [
     { id: 1, component: <SlideOne /> },
     { id: 2, component: <SlideTwo /> },
+    { id: 3, component: <SlideThree /> },
   ];
 
   // Keyboard navigation
@@ -51,17 +53,17 @@ const SlideContainer = () => {
     <section className="w-full bg-white relative">
       <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-12 pb-28 md:pb-32 relative">
         {/* SLIDER VIEWPORT */}
-        <div className="relative overflow-hidden rounded-2xl h-[720px]">
+        <div className="relative overflow-hidden rounded-2xl h-[880px]">
           {/* TRACK (all slides stacked vertically, move with translateY) */}
           <div
             className="transition-transform duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
             style={{
-              transform: `translateY(-${currentSlide * 720}px)`,
-              height: `${slides.length * 720}px`,
+              transform: `translateY(-${currentSlide * 900}px)`,
+              height: `${slides.length * 900}px`,
             }}
           >
             {slides.map((slide) => (
-              <div key={slide.id} className="h-[720px] w-full">
+              <div key={slide.id} className="h-[900px] w-full">
                 {slide.component}
               </div>
             ))}
@@ -89,23 +91,23 @@ const SlideContainer = () => {
           <button
             onClick={prevSlide}
             disabled={isTransitioning}
-            className="w-11 h-11 rounded-full bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] hover:text-white transition-all duration-300 disabled:opacity-50"
+            className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
             aria-label="Previous"
           >
             <HugeiconsIcon
               icon={ArrowRight02Icon}
-              className="w-5 h-5 rotate-180 text-[#0F3026] hover:text-white"
+              className="w-5 h-5 rotate-180 text-[#0F3026] group-hover:text-white"
             />
           </button>
           <button
             onClick={nextSlide}
             disabled={isTransitioning}
-            className="w-11 h-11 rounded-full bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] hover:text-white transition-all duration-300 disabled:opacity-50"
+            className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
             aria-label="Next"
           >
             <HugeiconsIcon
               icon={ArrowRight02Icon}
-              className="w-5 h-5 text-[#0F3026] hover:text-white"
+              className="w-5 h-5 text-[#0F3026] group-hover:text-white"
             />
           </button>
         </div>
