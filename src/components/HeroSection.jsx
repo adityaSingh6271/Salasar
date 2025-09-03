@@ -7,10 +7,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section
-      id="hero"
-      className="relative w-full h-screen overflow-hidden"
-    >
+    <section id="hero" className="relative w-full h-screen overflow-hidden">
       {/* Background video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -21,13 +18,13 @@ export default function HeroSection() {
       >
         <source src="/salasarClip.mp4" type="video/mp4" />
       </video>
-
       {/* Bottom Overlay (gradient fade) */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
 
       {/* Navbar */}
-      <Navbar />
-
+      <div className="relative z-50">
+        <Navbar />
+      </div>
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4 text-white mt-24">
         <h1
@@ -64,7 +61,6 @@ export default function HeroSection() {
           />
         </div>
       </div>
-
       {/* Floating Chatbot GIF (bottom-right) */}
       <div className="fixed bottom-6 right-6 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-lg border-2 border-white/30 z-50 cursor-pointer">
         <Image

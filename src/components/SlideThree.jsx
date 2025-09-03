@@ -1,6 +1,10 @@
+// SlideThree.jsx
 "use client";
 
-export default function SlideThree() {
+import React from "react";
+import { motion } from "framer-motion";
+
+export default function SlideThree({ onExpandVideo }) {
   return (
     <div
       className="w-full h-[800px] bg-white flex items-center justify-center overflow-hidden mt-16"
@@ -14,7 +18,7 @@ export default function SlideThree() {
               src="/Kitchen_Img.png"
               alt="Modern kitchen"
               style={styles.media}
-              loading="lazy"                      
+              loading="lazy"
             />
           </div>
         </div>
@@ -30,14 +34,17 @@ export default function SlideThree() {
             />
           </div>
 
-          <div style={{ ...styles.frame, width: 500, height: 345 }}>
-            <video
+          {/* <-- SHARED/CLICKABLE VIDEO (small) */}
+          <div style={{ ...styles.frame, width: 500, height: 345, cursor: "pointer" }}>
+            <motion.video
+              layoutId="property-video"
               src="/Salasar_slideClip.mp4"
-              style={styles.media}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               autoPlay
               muted
               loop
               playsInline
+              onClick={onExpandVideo}
               aria-label="Cityscape video"
             />
           </div>
@@ -87,7 +94,7 @@ const styles = {
     gap: 12,
     alignItems: "center",
     justifyContent: "center",
-    transform: "scale(0.9)", // shrink to fit into 900px
+    transform: "scale(0.9)", // shrink slightly to fit
     transformOrigin: "top center",
   },
   row: {
@@ -100,11 +107,12 @@ const styles = {
     overflow: "hidden",
     background: "#f3f3f3",
     boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
+    flexShrink: 0,
   },
-  media: {                                          
+  media: {
     width: "100%",
     height: "100%",
-    objectFit: "cover", // keep full visual look
+    objectFit: "cover",
     display: "block",
   },
 };
