@@ -12,7 +12,7 @@ export default function Navbar() {
       <Image
         src="/SalasarLogo.png"
         alt="Salasar Logo"
-        width={120}
+        width={122}
         height={50}
         priority
       />
@@ -24,7 +24,7 @@ export default function Navbar() {
           className="text-[#054738]"
           style={{
             fontFamily: "Gilroy, sans-serif",
-            fontSize: "20px",
+            fontSize: "22px",
             fontWeight: 400,
             lineHeight: "24px",
           }}
@@ -36,7 +36,7 @@ export default function Navbar() {
           className="text-[#044638]"
           style={{
             fontFamily: "Gilroy, sans-serif",
-            fontSize: "20px",
+            fontSize: "22px",
             fontWeight: 400,
             lineHeight: "24px",
           }}
@@ -48,7 +48,7 @@ export default function Navbar() {
           className="text-[#054738]"
           style={{
             fontFamily: "Gilroy, sans-serif",
-            fontSize: "20px",
+            fontSize: "22px",
             fontWeight: 400,
             lineHeight: "24px",
           }}
@@ -60,7 +60,7 @@ export default function Navbar() {
           className="text-[#054738]"
           style={{
             fontFamily: "Gilroy, sans-serif",
-            fontSize: "20px",
+            fontSize: "22px",
             fontWeight: 400,
             lineHeight: "24px",
           }}
@@ -88,7 +88,7 @@ export default function Navbar() {
         <button
           className="bg-[#054738] text-[#F0E6C3] rounded-full flex items-center justify-center cursor-pointer"
           style={{
-            width: "200px",
+            width: "220px",
             height: "42px",
             fontFamily: "Gilroy, sans-serif",
             fontSize: "16px",

@@ -1,8 +1,7 @@
-// SlideContainer.jsx
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { LayoutGroup, AnimatePresence } from "framer-motion";
+import { LayoutGroup, AnimatePresence, motion } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 
@@ -19,15 +18,31 @@ const baseSlides = [
   { id: 3, component: <SlideThree /> },
 ];
 const overlayIndex = baseSlides.length; // index for slide-four
-const TOTAL_SLIDES = baseSlides.length + 1; // includes overlay slide
+
+const slideVariants = {
+  enter: (direction) => ({
+    y: direction === "next" ? "-20%" : "20%",
+    opacity: 0,
+  }),
+  center: {
+    y: "0%",
+    opacity: 1,
+  },
+  exit: (direction) => ({
+    y: direction === "next" ? "20%" : "-20%",
+    opacity: 0,
+  }),
+};
 
 const SlideContainer = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState("next");
 
   // refs to avoid stale/useEffect dependency issues
   const isTransitioningRef = useRef(isTransitioning);
   const currentSlideRef = useRef(currentSlide);
+  const directionRef = useRef(direction);
 
   useEffect(() => {
     isTransitioningRef.current = isTransitioning;
@@ -37,6 +52,10 @@ const SlideContainer = () => {
     currentSlideRef.current = currentSlide;
   }, [currentSlide]);
 
+  useEffect(() => {
+    directionRef.current = direction;
+  }, [direction]);
+
   // Stable keyboard listener (no dynamic dependency array)
   useEffect(() => {
     const onKey = (e) => {
@@ -45,24 +64,30 @@ const SlideContainer = () => {
 
       if (e.key === "ArrowRight" || e.key === "ArrowDown") {
         // next
-        isTransitioningRef.current = true;
-        setIsTransitioning(true);
-        setCurrentSlide((p) => (p + 1) % TOTAL_SLIDES);
-        setTimeout(() => {
-          isTransitioningRef.current = false;
-          setIsTransitioning(false);
-        }, 550);
+        if (currentSlideRef.current < overlayIndex - 1) {
+          isTransitioningRef.current = true;
+          setIsTransitioning(true);
+          setDirection("next");
+          setCurrentSlide((p) => p + 1);
+          setTimeout(() => {
+            isTransitioningRef.current = false;
+            setIsTransitioning(false);
+          }, 850);
+        }
       }
 
       if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         // prev
-        isTransitioningRef.current = true;
-        setIsTransitioning(true);
-        setCurrentSlide((p) => (p - 1 + TOTAL_SLIDES) % TOTAL_SLIDES);
-        setTimeout(() => {
-          isTransitioningRef.current = false;
-          setIsTransitioning(false);
-        }, 550);
+        if (currentSlideRef.current > 0) {
+          isTransitioningRef.current = true;
+          setIsTransitioning(true);
+          setDirection("prev");
+          setCurrentSlide((p) => p - 1);
+          setTimeout(() => {
+            isTransitioningRef.current = false;
+            setIsTransitioning(false);
+          }, 850);
+        }
       }
 
       if (e.key === "Escape") {
@@ -80,35 +105,46 @@ const SlideContainer = () => {
   // navigation helpers used by buttons (keeps behavior identical)
   const nextSlide = () => {
     if (isTransitioningRef.current) return;
-    isTransitioningRef.current = true;
-    setIsTransitioning(true);
-    setCurrentSlide((p) => (p + 1) % TOTAL_SLIDES);
-    setTimeout(() => {
-      isTransitioningRef.current = false;
-      setIsTransitioning(false);
-    }, 550);
+    if (currentSlideRef.current < overlayIndex - 1) {
+      isTransitioningRef.current = true;
+      setIsTransitioning(true);
+      setDirection("next");
+      setCurrentSlide((p) => p + 1);
+      setTimeout(() => {
+        isTransitioningRef.current = false;
+        setIsTransitioning(false);
+      }, 850);
+    }
   };
 
   const prevSlide = () => {
     if (isTransitioningRef.current) return;
-    isTransitioningRef.current = true;
-    setIsTransitioning(true);
-    setCurrentSlide((p) => (p - 1 + TOTAL_SLIDES) % TOTAL_SLIDES);
-    setTimeout(() => {
-      isTransitioningRef.current = false;
-      setIsTransitioning(false);
-    }, 550);
+    if (currentSlideRef.current > 0) {
+      isTransitioningRef.current = true;
+      setIsTransitioning(true);
+      setDirection("prev");
+      setCurrentSlide((p) => p - 1);
+      setTimeout(() => {
+        isTransitioningRef.current = false;
+        setIsTransitioning(false);
+      }, 850);
+    }
   };
 
   const goToSlide = (idx) => {
     if (isTransitioningRef.current || idx === currentSlide) return;
+    if (idx > currentSlide) {
+      setDirection("next");
+    } else if (idx < currentSlide) {
+      setDirection("prev");
+    }
     isTransitioningRef.current = true;
     setIsTransitioning(true);
     setCurrentSlide(idx);
     setTimeout(() => {
       isTransitioningRef.current = false;
       setIsTransitioning(false);
-    }, 550);
+    }, 850);
   };
 
   // Only the base slides are in the translateY track
@@ -120,24 +156,27 @@ const SlideContainer = () => {
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-12 pb-28 md:pb-32 relative">
           {/* SLIDER VIEWPORT (base slides 1..3) */}
           <div className="relative overflow-hidden rounded-2xl h-[880px]">
-            <div
-              className="transition-transform duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
-              style={{
-                transform: `translateY(-${trackIndex * BASE_SLIDE_HEIGHT}px)`,
-                height: `${baseSlides.length * BASE_SLIDE_HEIGHT}px`,
-              }}
-            >
-              {baseSlides.map((slideObj, idx) => (
-                <div key={slideObj.id} className="h-[900px] w-full">
-                  {idx === baseSlides.length - 1
+            <AnimatePresence initial={false} mode="wait">
+              <motion.div
+                key={trackIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
+                className="absolute inset-0"
+              >
+                <div className="h-[900px] w-full">
+                  {trackIndex === baseSlides.length - 1
                     ? // inject expand handler into SlideThree
-                      React.cloneElement(slideObj.component, {
+                      React.cloneElement(baseSlides[trackIndex].component, {
                         onExpandVideo: () => setCurrentSlide(overlayIndex),
                       })
-                    : slideObj.component}
+                    : baseSlides[trackIndex].component}
                 </div>
-              ))}
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* DOTS (hide when overlay active) */}
@@ -163,7 +202,7 @@ const SlideContainer = () => {
             <div className="absolute bottom-4 md:bottom-6 right-6 flex items-center gap-3">
               <button
                 onClick={prevSlide}
-                disabled={isTransitioning}
+                disabled={isTransitioning || currentSlide === 0}
                 className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
                 aria-label="Previous"
               >
@@ -174,7 +213,7 @@ const SlideContainer = () => {
               </button>
               <button
                 onClick={nextSlide}
-                disabled={isTransitioning}
+                disabled={isTransitioning || currentSlide === baseSlides.length - 1}
                 className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
                 aria-label="Next"
               >
