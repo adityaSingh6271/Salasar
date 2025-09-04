@@ -32,7 +32,7 @@ export default function Navbar() {
           About us
         </Link>
         <Link
-          href="#projects"
+          href="/projects"
           className="text-[#044638]"
           style={{
             fontFamily: "Gilroy, sans-serif",

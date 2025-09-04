@@ -1,13 +1,11 @@
-// SlideThree.jsx
 "use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 
 export default function SlideThree({ onExpandVideo }) {
   return (
     <div
-      className="w-full h-[1100px] bg-white flex items-center justify-center overflow-hidden"
+      className="w-full h-[1100px] bg-white flex items-center justify-center overflow-hidden relative"
       aria-label="Property interiors collage"
     >
       <div style={styles.wrap}>
@@ -34,19 +32,38 @@ export default function SlideThree({ onExpandVideo }) {
             />
           </div>
 
-          {/* <-- SHARED/CLICKABLE VIDEO (small) */}
-          <div style={{ ...styles.frame, width: 500, height: 345, cursor: "pointer" }}>
+          {/* Enhanced Video with subtle glow effect */}
+          <div 
+            style={{ 
+              ...styles.frame, 
+              width: 500, 
+              height: 345, 
+              cursor: "pointer",
+              position: 'relative',
+              boxShadow: "0 4px 20px rgba(0,0,0,0.15), 0 0 0 2px rgba(255,255,255,0.1)"
+            }}
+          >
             <motion.video
               layoutId="property-video"
               src="/Salasar_slideClip.mp4"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              style={{ 
+                width: "100%", 
+                height: "100%", 
+                objectFit: "cover", 
+                display: "block" 
+              }}
               autoPlay
               muted
               loop
               playsInline
               onClick={onExpandVideo}
               aria-label="Cityscape video"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             />
+            
+            {/* Subtle scroll indicator */}
+
           </div>
 
           <div style={{ ...styles.frame, width: 284, height: 345 }}>
@@ -94,7 +111,7 @@ const styles = {
     gap: 12,
     alignItems: "center",
     justifyContent: "center",
-    transform: "scale(0.9)", // shrink slightly to fit
+    transform: "scale(0.9)",
     transformOrigin: "top center",
   },
   row: {
