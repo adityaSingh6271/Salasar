@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function SlideThree({ onExpandVideo }) {
   return (
     <div
-      className="w-full h-[800px] bg-white flex items-center justify-center overflow-hidden mt-16"
+      className="w-full h-[1100px] bg-white flex items-center justify-center overflow-hidden"
       aria-label="Property interiors collage"
     >
       <div style={styles.wrap}>

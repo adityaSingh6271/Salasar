@@ -4,19 +4,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { LayoutGroup, AnimatePresence, motion } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
-
 import SlideOne from "./SlideOne";
-import SlideTwo from "./SlideTwo";
-import SlideThree from "./SlideThree";
 import SlideFour from "./SlideFour";
 
 // constants (stable across renders)
 const BASE_SLIDE_HEIGHT = 900;
-const baseSlides = [
-  { id: 1, component: <SlideOne /> },
-  { id: 2, component: <SlideTwo /> },
-  { id: 3, component: <SlideThree /> },
-];
+const baseSlides = [{ id: 1, component: <SlideOne /> }];
 const overlayIndex = baseSlides.length; // index for slide-four
 
 const slideVariants = {
@@ -213,7 +206,9 @@ const SlideContainer = () => {
               </button>
               <button
                 onClick={nextSlide}
-                disabled={isTransitioning || currentSlide === baseSlides.length - 1}
+                disabled={
+                  isTransitioning || currentSlide === baseSlides.length - 1
+                }
                 className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
                 aria-label="Next"
               >

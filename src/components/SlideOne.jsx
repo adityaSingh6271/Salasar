@@ -23,13 +23,13 @@ const SlideOne = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col mt-10">
       {/* Header inside slide */}
       <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-12 pt-8 md:pt-12">
         <div className="grid grid-cols-12 items-start gap-y-4 md:gap-6 mt-8">
           <div className="col-span-12 md:col-span-6">
             <h1
-              className="text-4xl md:text-5xl font-light text-black"
+              className="text-4xl md:text-5xl font-light text-black -ml-14 md:-ml-30"
               style={{ fontFamily: "Gambetta, serif" }}
             >
               Featured Properties

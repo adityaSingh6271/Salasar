@@ -81,7 +81,7 @@ export default function FAQSection() {
               >
                 <span
                   className="text-lg text-gray-900"
-                  style={{ fontFamily: "Instrument Sans, sans-serif" }}
+                  style={{ fontFamily: "Gambetta" }}
                 >
                   {faq.question}
                 </span>
