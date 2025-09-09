@@ -1,84 +1,73 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons"
 
 const PropertyCard = ({ property }) => {
   return (
-    <div className="w-full h-auto md:h-[560px] bg-white shadow-sm overflow-hidden flex flex-col md:flex-row">
+    <div className="w-full h-auto lg:h-[560px] bg-white shadow-sm overflow-hidden flex flex-col lg:flex-row">
       {/* Image */}
-      <div className="w-full md:w-5/12 h-[300px] md:h-full">
-        <img
-          src={property.image}
-          alt={property.title}
-          className="w-full h-full object-cover"
-        />
+      <div className="w-full lg:w-5/12 h-[250px] sm:h-[300px] md:h-[350px] lg:h-full">
+        <img src={property.image || "/placeholder.svg"} alt={property.title} className="w-full h-full object-cover" />
       </div>
 
       {/* Content */}
-      <div className="w-full md:w-7/12 bg-[#FAF8F1] px-8 py-10 flex flex-col">
+      <div className="w-full lg:w-7/12 bg-[#FAF8F1] px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex flex-col">
         {/* Top section */}
-        <div className="flex-1 space-y-6">
+        <div className="flex-1 space-y-4 sm:space-y-6">
           {/* Property Type */}
-          <span className="text-lg text-gray-600 block">{property.type}</span>
+          <span className="text-base sm:text-lg text-gray-600 block">{property.type}</span>
 
           {/* Property Title */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[#054738] leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-4xl font-bold text-[#054738] leading-tight">
             {property.title}
           </h2>
 
           {/* Description */}
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            {property.description}
-          </p>
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">{property.description}</p>
 
           {/* Icons */}
-          <div className="flex items-center gap-5 flex-wrap">
+          <div className="flex items-center gap-3 sm:gap-5 flex-wrap mt-4 sm:mt-6">
             {property.icons?.map((icon, i) =>
               icon.type === "img" ? (
                 <img
                   key={i}
-                  src={icon.src}
+                  src={icon.src || "/placeholder.svg"}
                   alt={icon.alt}
-                  className="w-7 h-7 object-contain"
+                  className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
                 />
               ) : (
-                <HugeiconsIcon
-                  key={i}
-                  icon={icon.component}
-                  className="w-7 h-7 text-[#054738]"
-                />
-              )
+                <HugeiconsIcon key={i} icon={icon.component} className="w-6 h-6 sm:w-7 sm:h-7 text-[#054738]" />
+              ),
             )}
           </div>
 
           {/* Details */}
-          <div className="space-y-3">
-            <div className="flex justify-between border-b border-gray-300 pb-2">
-              <span className="text-sm font-medium text-[#054738]">Location</span>
-              <span className="text-sm text-gray-700">{property.location}</span>
+          <div className="space-y-4 sm:space-y-5 mt-4 sm:mt-6">
+            <div className="flex justify-between border-b border-gray-300 pb-3 sm:pb-5">
+              <span className="text-xs sm:text-sm font-medium text-[#054738]">Location</span>
+              <span className="text-xs sm:text-sm text-gray-700 text-right">{property.location}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-sm font-medium text-[#054738]">Status</span>
-              <span className="text-sm text-gray-700">{property.status}</span>
+            <div className="flex justify-between border-b border-gray-300 pb-3 sm:pb-5">
+              <span className="text-xs sm:text-sm font-medium text-[#054738]">Status</span>
+              <span className="text-xs sm:text-sm text-gray-700">{property.status}</span>
             </div>
           </div>
         </div>
 
         {/* Bottom section */}
-        <div className="flex items-center justify-between mt-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-6 sm:mt-8 gap-4 sm:gap-0">
           <div>
-            <span className="text-2xl font-bold text-black">{property.price}</span>
-            <span className="ml-4 text-lg font-semibold text-black">{property.bhk}</span>
+            <span className="text-2xl sm:text-[32px] font-semibold text-black">{property.bhk}</span>
           </div>
-          <button className="flex items-center gap-2 bg-[#054738] text-white px-6 py-3 rounded-md hover:bg-[#043529] transition">
+          <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#054738] text-white px-4 sm:px-6 py-3 rounded-md hover:bg-[#043529] transition text-sm sm:text-base">
             Book a site visit
-            <HugeiconsIcon icon={ArrowRight02Icon} className="w-5 h-5" />
+            <HugeiconsIcon icon={ArrowRight02Icon} className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PropertyCard;
+export default PropertyCard

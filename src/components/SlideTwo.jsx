@@ -83,8 +83,9 @@ const SlideTwo = () => {
         {/* Main Grid - Reduced gap and container width */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 bg-white overflow-hidden max-w-6xl mx-auto">
           {/* Left Image (Responsive) */}
+          {/* Left Image (Locked height, no accordion effect) */}
           <div className="col-span-1 md:col-span-5 flex justify-center items-start relative">
-            <div className="relative h-[320px] md:h-full w-full">
+            <div className="relative h-[320px] md:h-[600px] w-full">
               <Image
                 src="/FProperty2.png"
                 alt="Belief section"
