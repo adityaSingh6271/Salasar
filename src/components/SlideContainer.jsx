@@ -148,7 +148,7 @@ const SlideContainer = () => {
       <section className="w-full bg-white relative">
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-12 pb-28 md:pb-32 relative">
           {/* SLIDER VIEWPORT (base slides 1..3) */}
-          <div className="relative overflow-hidden rounded-2xl h-[880px]">
+          <div className="relative overflow-hidden rounded-2xl h-[850px]">
             <AnimatePresence initial={false} mode="wait">
               <motion.div
                 key={trackIndex}

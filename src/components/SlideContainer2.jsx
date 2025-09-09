@@ -1,17 +1,14 @@
-// SlideContainer2.jsx
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import AwardsSection from "./AwardsSection";
-import FAQSection from "./faq";
 
 // constants
-const BASE_SLIDE_HEIGHT = 900;
 const slides = [
   { id: 1, component: <AwardsSection /> },
-//   { id: 2, component: <FAQSection /> },
+  // { id: 2, component: <FAQSection /> },
 ];
 const TOTAL_SLIDES = slides.length;
 
@@ -94,18 +91,17 @@ const SlideContainer2 = () => {
 
   return (
     <section className="w-full bg-white relative">
-      <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-12 pb-28 md:pb-32 relative">
-        {/* SLIDER VIEWPORT */}
-        <div className="relative overflow-hidden rounded-2xl h-[720px]">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-12 pb-16 md:pb-28 lg:pb-32 relative">
+        {/* SLIDER VIEWPORT - Responsive height */}
+        <div className="relative overflow-hidden rounded-2xl min-h-[500px] md:min-h-[600px] lg:min-h-[720px]">
           <div
             className="transition-transform duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
             style={{
-              transform: `translateY(-${currentSlide * BASE_SLIDE_HEIGHT}px)`,
-              height: `${TOTAL_SLIDES * BASE_SLIDE_HEIGHT}px`,
+              transform: `translateY(-${currentSlide * 100}%)`,
             }}
           >
             {slides.map((slide) => (
-              <div key={slide.id} className="h-[720px] w-full">
+              <div key={slide.id} className="w-full">
                 {slide.component}
               </div>
             ))}
@@ -113,7 +109,7 @@ const SlideContainer2 = () => {
         </div>
 
         {/* DOTS */}
-        <div className="absolute bottom-4 md:bottom-6 left-6 flex gap-2">
+        <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 flex gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -129,27 +125,27 @@ const SlideContainer2 = () => {
         </div>
 
         {/* ARROWS */}
-        <div className="absolute bottom-4 md:bottom-6 right-6 flex items-center gap-3">
+        <div className="absolute bottom-4 md:bottom-6 right-4 md:right-6 flex items-center gap-3">
           <button
             onClick={prevSlide}
             disabled={isTransitioning || currentSlide === 0}
-            className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
+            className="group w-10 h-10 md:w-11 md:h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50 transition-all duration-200"
             aria-label="Previous"
           >
             <HugeiconsIcon
               icon={ArrowRight02Icon}
-              className="w-5 h-5 rotate-180 text-[#0F3026] group-hover:text-white"
+              className="w-4 h-4 md:w-5 md:h-5 rotate-180 text-[#0F3026] group-hover:text-white transition-colors duration-200"
             />
           </button>
           <button
             onClick={nextSlide}
             disabled={isTransitioning || currentSlide === TOTAL_SLIDES - 1}
-            className="group w-11 h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50"
+            className="group w-10 h-10 md:w-11 md:h-11 rounded-full cursor-pointer bg-white shadow-md border border-[#0F3026] flex items-center justify-center hover:shadow-lg hover:bg-[#0F3026] disabled:opacity-50 transition-all duration-200"
             aria-label="Next"
           >
             <HugeiconsIcon
               icon={ArrowRight02Icon}
-              className="w-5 h-5 text-[#0F3026] group-hover:text-white"
+              className="w-4 h-4 md:w-5 md:h-5 text-[#0F3026] group-hover:text-white transition-colors duration-200"
             />
           </button>
         </div>
