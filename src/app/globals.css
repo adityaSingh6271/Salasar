@@ -181,3 +181,53 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.wrapper_x1 {
+  /* position: absolute; */
+  /* width: 100%; */
+  margin: 0 auto;
+  top: 0;
+  /* height: 220vh; */
+  overflow-x: clip ;
+  z-index: 9999;
+}
+/* 
+
+*/
+
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #054639;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mask: url(#mask);
+  -webkit-mask: url(#mask);
+}
+
+.mask text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  fill: white;
+}
+
+.svgwrapper {
+  height: 220vh;
+  /* background-color: green; */
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}

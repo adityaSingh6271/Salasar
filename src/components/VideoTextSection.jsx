@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function VideoTextSection() {
+
+
   return (
     <section
       id="video-text"
@@ -31,7 +34,7 @@ export default function VideoTextSection() {
         </video>
 
         {/* Green overlay that will be masked by text - video shows through text */}
-        <div 
+        <div
           className="absolute inset-0 bg-[#054639] z-5 flex items-center justify-center"
           style={{
             maskRepeat: "no-repeat",
@@ -44,14 +47,14 @@ export default function VideoTextSection() {
         />
 
         {/* Fallback text for browsers that don't support mask */}
-        <div
+        {/* <div
           className="relative z-10 text-6xl md:text-8xl font-extrabold uppercase text-white opacity-80"
           style={{
             fontFamily: "Gambetta, serif",
           }}
         >
           SALASAR GROUP
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );
