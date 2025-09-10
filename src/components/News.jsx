@@ -71,7 +71,7 @@ const News = () => {
               {/* Content */}
               <div className="flex flex-col justify-center space-y-4 flex-1">
                 <p
-                  className="text-sm text-gray-500 uppercase tracking-wide"
+                  className="text-sm text-[#000000] uppercase tracking-wide"
                   style={{ fontFamily: "Instrument Sans, sans-serif" }}
                 >
                   {item.date}
@@ -79,13 +79,13 @@ const News = () => {
 
                 <h3
                   className="text-2xl lg:text-3xl leading-tight text-gray-900"
-                  style={{ fontFamily: "Gambetta" }}
+                  style={{ fontFamily: "Instrument Sans, sans-serif" }}
                 >
                   {item.title}
                 </h3>
 
                 <button
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors duration-200 w-fit"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-[#000000] rounded-full text-[#000000] hover:bg-gray-50 transition-colors duration-200 w-fit"
                   style={{ fontFamily: "Instrument Sans, sans-serif" }}
                 >
                   Learn More
