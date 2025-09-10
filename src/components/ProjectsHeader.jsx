@@ -18,7 +18,7 @@ const ProjectsHeader = () => {
         <div className="absolute inset-0 bg-black/30" />
 
         {/* Navbar */}
-        <div className="relative z-30">
+        <div className="relative z-50">
           <Navbar />
         </div>
       </section>

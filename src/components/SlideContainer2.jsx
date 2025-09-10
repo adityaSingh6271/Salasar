@@ -93,7 +93,7 @@ const SlideContainer2 = () => {
     <section className="w-full bg-white relative">
       <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-12 pb-16 md:pb-28 lg:pb-32 relative">
         {/* SLIDER VIEWPORT - Responsive height */}
-        <div className="relative overflow-hidden rounded-2xl min-h-[500px] md:min-h-[600px] lg:min-h-[720px]">
+        <div className="relative overflow-hidden rounded-2xl min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
           <div
             className="transition-transform duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
             style={{

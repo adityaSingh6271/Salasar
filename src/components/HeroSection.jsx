@@ -14,9 +14,10 @@ export default function HeroSection() {
   // Font size shrinks from text-6xl → text-3xl when scrolling 200vh
   const fontSize = useTransform(
     scrollY,
-    [(0.1 * window.innerHeight) / 100, (120 * window.innerHeight) / 100],
+    [0.1 * (typeof window !== "undefined" ? window.innerHeight : 1000), 
+     1.2 * (typeof window !== "undefined" ? window.innerHeight : 1000)],
     ["100px", "7rem"]
-  );
+  )
 
   useEffect(() => {
     const handleScroll = () => {

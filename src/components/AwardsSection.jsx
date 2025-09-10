@@ -69,22 +69,24 @@ export default function AwardsSection() {
               </div>
 
               {/* Text content - left aligned */}
-              <div className="flex flex-col text-left w-full flex-1 justify-between">
-                {/* Title */}
-                <h3
-                  style={{
-                    color: "#F0E6C3",
-                    fontSize: "18px",
-                    fontFamily: "Instrument-Sans, sans-serif",
-                  }}
-                  className="text-lg md:text-xl lg:text-[23px] font-medium leading-snug mb-4 md:mb-8"
-                >
-                  {award.title}
-                </h3>
+              <div className="flex flex-col w-full flex-1">
+                {/* Title wrapper occupies remaining space and centers its content */}
+                <div className="flex-1 flex items-center justify-center">
+                  <h3
+                    style={{
+                      color: "#F0E6C3",
+                      fontSize: "18px",
+                      fontFamily: "Instrument-Sans, sans-serif",
+                    }}
+                    className="text-lg md:text-xl lg:text-[23px] font-medium leading-snug"
+                  >
+                    {award.title}
+                  </h3>
+                </div>
 
-                {/* Description */}
+                {/* Description stays left-aligned at the bottom */}
                 <p
-                  className="italic leading-relaxed text-base md:text-lg"
+                  className="italic leading-relaxed text-base md:text-lg text-left"
                   style={{
                     color: "#F0E6C3",
                     fontFamily: "Instrument-Sans, sans-serif",
