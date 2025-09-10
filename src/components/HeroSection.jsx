@@ -15,7 +15,7 @@ export default function HeroSection() {
   const fontSize = useTransform(
     scrollY,
     [(0.1 * window.innerHeight) / 100, (120 * window.innerHeight) / 100],
-    ["75px", "6rem"]
+    ["100px", "7rem"]
   );
 
   useEffect(() => {
@@ -161,6 +161,7 @@ export default function HeroSection() {
           {/* Floating Chatbot GIF (bottom-right) */}
           <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden shadow-lg border-2 border-white/30 z-50 cursor-pointer hover:scale-105 transition-transform duration-200">
             <Image
+              onClick={() => console.log(fontSize.get("current"))}
               src="/Chatbot.gif"
               alt="Chatbot"
               fill
@@ -176,17 +177,57 @@ export default function HeroSection() {
           </div>
         </section>
       </div>
-      <svg className="svgwrapper" display={scrolled ? "flex" : "none"}>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-[100vh] sticky top-0"
-        >
-          <source src="https://storage.coverr.co/videos/7RzPQrmB00s01rknm8VJnXahEyCy4024IMG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI5MTg2NjA0fQ.M8oElp5VNO8bWEWmdF2nGiu3qDOOYRFfP8wkKvl8I20" />{" "}
-        </video>
-      </svg>
+      <div
+        className="absolute top-0 w-full h-[220vh] overflow-x-clip z-[9999]"
+        style={{
+          opacity: scrolled ? 1 : 0,
+          pointerEvents: scrolled ? "auto" : "none",
+        }}
+      >
+        <div className="sticky top-0 h-[100vh] wrapper_x1">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-[100vh] w-[100vw] object-cover sticky top-0"
+          >
+            <source src="/salasarClip.mp4" type="video/mp4" />
+          </video>
+          <svg
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="none"
+            style={{
+              display: "flex",
+              width: "100vw",
+              height: "100vh",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          >
+            <mask id="mask" x="0" y="0" width="100%" height="100%">
+              <rect x="0" y="0" width="100%" height="100%" fill="#fff" />
+              <motion.text
+                x="50%"
+                y="50%"
+                dominantBaseline="middle"
+                textAnchor="middle"
+                style={{
+                  fontSize,
+                  fontWeight: "bold",
+                  fill: "black",
+                  color: "black",
+                  fontFamily: "Instrument Sans, sans-serif",
+                }}
+              >
+                SALASAR GROUP
+              </motion.text>
+            </mask>
+            <rect x="0" y="0" width="100%" height="100%" fill="#054639" mask="url(#mask)"/>
+          </svg>
+        </div>
+      </div>
     </div>
   );
 }
