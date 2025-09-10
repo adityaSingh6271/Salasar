@@ -1,17 +1,18 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 const navLeft = [
   { label: "About us", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Gallery", href: "/gallery" },
-]
+  { label: "Properties", href: "/properties" },
+  { label: "Contact", href: "/contact" },
+];
 
 const navRight = [
-  { label: "Careers", href: "/careers" },
-  { label: "Contact us", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy" },
-]
+  { label: "Teams", href: "/teams" },
+  { label: "Legal", href: "/legal" },
+  { label: "Media", href: "/media" },
+  { label: "News", href: "/news" },
+];
 
 export default function Footer({ headingText }) {
   return (
@@ -19,11 +20,20 @@ export default function Footer({ headingText }) {
       {/* CTA BANNER */}
       <div className="relative w-full">
         <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[560px] overflow-hidden">
-          <Image src="/Footer-Img.png" alt="Warm interior background" fill className="object-cover" priority />
+          <Image
+            src="/Footer-Img.png"
+            alt="Warm interior background"
+            fill
+            className="object-cover"
+            priority
+          />
 
           <div className="absolute inset-0 bg-black/35" />
-          <div className="absolute top-16 sm:top-20 md:top-25 left-1/2 -translate-x-1/2 z-20">
-            <p className="text-white text-sm sm:text-[16px]" style={{ fontFamily: "Instrument Sans, sans-serif" }}>
+          <div className="absolute top-16 sm:top-20 left-1/2 -translate-x-1/2 z-20">
+            <p
+              className="text-white text-sm sm:text-[16px]"
+              style={{ fontFamily: "Instrument Sans, sans-serif" }}
+            >
               Contact Us
             </p>
           </div>
@@ -56,26 +66,34 @@ export default function Footer({ headingText }) {
       </div>
 
       {/* FOOTER */}
-      <footer className="relative w-full text-[#F0E6C3]" style={{ backgroundColor: "#054738" }}>
-        {/* Enhanced pattern visibility */}
+      <footer
+        className="relative w-full text-[#F0E6C3]"
+        style={{ backgroundColor: "#054738" }}
+      >
+        {/* Pattern */}
         <div
           className="pointer-events-none absolute inset-0 hidden lg:block"
           style={{
-            backgroundImage: " url('/Footer_Pattern.svg')",
+            backgroundImage: "url('/Footer_Pattern.svg')",
             backgroundRepeat: "repeat",
-            backgroundSize: "320px 317.4193420410156px",
+            backgroundSize: "320px 317px",
             backgroundPosition: "calc(100% - 128px) 120px",
             opacity: 1,
             mixBlendMode: "overlay",
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="relative w-full px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left block */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               <div className="w-[100px] h-[64px] sm:w-[119px] sm:h-[76px] relative">
-                <Image src="/SalasarLogo.png" alt="Salasar logo" fill className="object-contain" />
+                <Image
+                  src="/SalasarLogo.png"
+                  alt="Salasar logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
 
               <p
@@ -90,7 +108,10 @@ export default function Footer({ headingText }) {
                 Savor our magic. Reach for your next sparkle.
               </p>
 
-              <div className="space-y-4 sm:space-y-6" style={{ fontFamily: "Instrument Sans, sans-serif" }}>
+              <div
+                className="space-y-4 sm:space-y-6"
+                style={{ fontFamily: "Instrument Sans, sans-serif" }}
+              >
                 <p
                   className="max-w-[515px]"
                   style={{
@@ -107,28 +128,34 @@ export default function Footer({ headingText }) {
                 </p>
 
                 <div className="space-y-1">
-                  <p style={{ fontSize: "clamp(16px, 3vw, 24px)", color: "#F0E6C3" }}>+91 22 2804 9600</p>
-                  <p style={{ fontSize: "clamp(16px, 3vw, 24px)", color: "#F0E6C3" }}>+91 22 2814 3400</p>
+                  <p className="text-lg sm:text-xl">+91 22 2804 9600</p>
+                  <p className="text-lg sm:text-xl">+91 22 2814 3400</p>
                 </div>
 
-                <p style={{ fontSize: "clamp(16px, 3vw, 24px)", color: "#F0E6C3" }}>director@salasarbuilders.com</p>
+                <p className="text-lg sm:text-xl">
+                  director@salasarbuilders.com
+                </p>
               </div>
             </div>
 
             {/* Right block */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="grid grid-cols-2 gap-6 sm:gap-8">
+            <div className="lg:col-span-5 flex flex-col gap-8 pl-6 sm:pl-10 lg:pl-70">
+              {/* Navigation links */}
+              <div className="grid grid-cols-2 justify-between gap-12 sm:gap-10">
                 {/* Left nav */}
                 <nav
                   className="space-y-4 sm:space-y-6"
                   style={{
                     fontFamily: "Gambetta",
                     fontSize: "clamp(16px, 3vw, 24px)",
-                    color: "#F0E6C3",
                   }}
                 >
                   {navLeft.map((item) => (
-                    <Link key={item.label} href={item.href} className="block hover:opacity-90 transition-opacity">
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="block hover:opacity-90 transition-opacity"
+                    >
                       {item.label}
                     </Link>
                   ))}
@@ -140,11 +167,14 @@ export default function Footer({ headingText }) {
                   style={{
                     fontFamily: "Gambetta",
                     fontSize: "clamp(16px, 3vw, 24px)",
-                    color: "#F0E6C3",
                   }}
                 >
                   {navRight.map((item) => (
-                    <Link key={item.label} href={item.href} className="block hover:opacity-90 transition-opacity">
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="block hover:opacity-90 transition-opacity"
+                    >
                       {item.label}
                     </Link>
                   ))}
@@ -152,25 +182,66 @@ export default function Footer({ headingText }) {
               </div>
 
               {/* Social icons */}
-              <div className="flex gap-3 sm:gap-4 justify-start">
+              <div className="flex gap-3 mt-70">
                 {[
                   { src: "/Facebook.png", alt: "Facebook" },
                   { src: "/Instagram.png", alt: "Instagram" },
-                  { src: "/LinkedIn.png", alt: "LinkedIn" },
                   { src: "/TwitterX.png", alt: "X (Twitter)" },
+                  { src: "/LinkedIn.png", alt: "LinkedIn" },
                   { src: "/YT.png", alt: "YouTube" },
                 ].map((icon) => (
-                  <a key={icon.alt} href="#" aria-label={icon.alt} className="hover:opacity-80 transition-opacity">
+                  <a
+                    key={icon.alt}
+                    href="#"
+                    aria-label={icon.alt}
+                    className="hover:opacity-80 transition-opacity"
+                  >
                     <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-[42px] lg:h-[42px] relative">
-                      <Image src={icon.src || "/placeholder.svg"} alt={icon.alt} fill className="object-contain" />
+                      <Image
+                        src={icon.src || "/placeholder.svg"}
+                        alt={icon.alt}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                   </a>
                 ))}
               </div>
             </div>
           </div>
+
+          <div className="mt-12 sm:mt-16 md:mt-20">
+            <div className="w-full h-0.5 bg-[#F0E6C3] opacity-60 mb-6"></div>
+
+            {/* Bottom section */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <p
+                className="text-[#F0E6C3] opacity-80 text-sm"
+                style={{ fontFamily: "Instrument Sans, sans-serif" }}
+              >
+                © 2025 Salasar. All rights reserved.
+              </p>
+
+              <div className="flex gap-6">
+                <Link
+                  href="/privacy-policy"
+                  className="text-[#F0E6C3] opacity-80 hover:opacity-100 transition-opacity text-sm"
+                  style={{ fontFamily: "Instrument Sans, sans-serif" }}
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/terms-of-service"
+                  className="text-[#F0E6C3] opacity-80 hover:opacity-100 transition-opacity text-sm"
+                  style={{ fontFamily: "Instrument Sans, sans-serif" }}
+                >
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </section>
-  )
+  );
 }
