@@ -1,6 +1,7 @@
 "use client";
 import AboutHero from "@/components/AboutHero";
 import AwardsSection from "@/components/AwardsSection";
+import Footer from "@/components/Footer";
 import Message from "@/components/Message";
 import News from "@/components/News";
 import RevealText from "@/components/RevealText";
@@ -14,16 +15,17 @@ const AboutPage = () => {
   return (
     <>
       <AboutHero />
-      <RevealText/>
-      <SectionBlock/>
+      <RevealText />
+      <SectionBlock />
       <Message />
       <div className="mt-10">
-        <SlideTwo/>
+        <SlideTwo />
       </div>
-      <SuccessStats/>
-      <Team/>
-      <AwardsSection/>
-      <News/>
+      <SuccessStats />
+      <Team />
+      <AwardsSection />
+      <News />
+      <Footer />
     </>
   );
 };

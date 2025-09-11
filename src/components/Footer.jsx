@@ -220,6 +220,7 @@ export default function Footer({ headingText }) {
                 style={{ fontFamily: "Instrument Sans, sans-serif" }}
               >
                 © 2025 Salasar. All rights reserved.
+                
               </p>
 
               <div className="flex gap-6">
@@ -229,6 +230,8 @@ export default function Footer({ headingText }) {
                   style={{ fontFamily: "Instrument Sans, sans-serif" }}
                 >
                   Privacy Policy
+                 <hr className="border-[#F0E6C3]" />
+
                 </Link>
                 <Link
                   href="/terms-of-service"
@@ -236,6 +239,8 @@ export default function Footer({ headingText }) {
                   style={{ fontFamily: "Instrument Sans, sans-serif" }}
                 >
                   Terms of Service
+                  <hr className="border-[#F0E6C3]" />
+
                 </Link>
               </div>
             </div>
