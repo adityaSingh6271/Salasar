@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-const ExoticaHero = () => {
+const BlogHero = () => {
   return (
     <div className="relative min-h-screen bg-white overflow-hidden">
       {/* Video Section */}
@@ -27,28 +27,30 @@ const ExoticaHero = () => {
 
         {/* Content at bottom center of video */}
         <div className="absolute bottom-30 left-1/2 transform -translate-x-1/2 z-10 text-center text-white px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-5xl mx-auto space-y-4 sm:space-y-6 lg:space-y-8 mb-20">
-            {/* Title */}
+          <div className="w-full max-w-6xl mx-auto text-center mb-20">
+            {/* Title - force single line */}
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight whitespace-nowrap"
               style={{
                 fontFamily: "Gambetta, serif",
-                fontSize: "clamp(2rem, 5vw, 5rem)",
+                /* slightly more flexible clamp so it can shrink on very small screens */
+                fontSize: "clamp(1.25rem, 3.5vw, 4.5rem)",
                 lineHeight: "1.1",
               }}
             >
-              SALASAR-EXOTICA II
+              Discover Our <span className="italic">Recent Events</span>
             </h1>
 
-            {/* Description */}
+            {/* Description - next line */}
             <p
-              className="max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl text-sm sm:text-base md:text-lg lg:text-xl text-[#DADADA] mx-auto leading-relaxed"
+              className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg lg:text-xl text-[#DADADA] leading-relaxed mx-auto max-w-3xl"
               style={{
-                fontSize: "clamp(0.875rem, 2vw, 1.25rem)",
+                fontSize: "clamp(0.9rem, 1.5vw, 1.25rem)",
                 fontFamily: "Instrument Sans, sans-serif",
               }}
             >
-             Good buildings come from good people, and all problems are solved by good design.
+              Stay updated on milestones and activities. Recent events <br/> show our
+              dedication to growth and creativity.
             </p>
           </div>
         </div>
@@ -60,4 +62,4 @@ const ExoticaHero = () => {
   );
 };
 
-export default ExoticaHero;
+export default BlogHero;

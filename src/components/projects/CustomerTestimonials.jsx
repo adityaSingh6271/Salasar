@@ -124,7 +124,7 @@ export default function CustomerTestimonials() {
               <Button
                 variant="outline"
                 size="icon"
-                className="w-8 h-8 rounded-full border-gray-300 bg-transparent"
+                className="w-8 h-8 rounded-full border-gray-300 bg-transparent cursor-pointer"
                 onClick={prevTestimonial}
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -132,7 +132,7 @@ export default function CustomerTestimonials() {
               <Button
                 variant="outline"
                 size="icon"
-                className="w-8 h-8 rounded-full border-gray-300 bg-transparent"
+                className="w-8 h-8 rounded-full border-gray-300 bg-transparent cursor-pointer"
                 onClick={nextTestimonial}
               >
                 <ChevronRight className="w-4 h-4" />

@@ -93,7 +93,7 @@ export default function AboutUs() {
             {[...images, ...images].map((src, idx) => (
               <div
                 key={idx}
-                className="relative w-[280px] h-[300px] sm:w-[320px] sm:h-[340px] md:w-[380px] md:h-[400px] lg:w-[460px] lg:h-[480px] flex-shrink-0 rounded-lg overflow-hidden"
+                className="relative w-[280px] h-[300px] sm:w-[320px] sm:h-[340px] md:w-[380px] md:h-[400px] lg:w-[460px] lg:h-[480px] flex-shrink-0 overflow-hidden"
               >
                 <Image
                   src={src || "/placeholder.svg"}

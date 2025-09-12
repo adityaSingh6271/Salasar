@@ -7,7 +7,8 @@ export default async function ProjectDetail({ params }) {
   switch (slug) {
     case "exotica-ii":
       return <ExoticaII />;
+      
     default:
       return <div>Project not found</div>;
   }
-}
+}    

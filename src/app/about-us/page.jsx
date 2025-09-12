@@ -13,7 +13,7 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <>
+    <main>
       <AboutHero />
       <RevealText />
       <SectionBlock />
@@ -26,7 +26,7 @@ const AboutPage = () => {
       <AwardsSection />
       <News />
       <Footer />
-    </>
+    </main>
   );
 };
 

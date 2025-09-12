@@ -4,7 +4,7 @@ import React from "react";
 export default function SuccessStats() {
   return (
     <div className="mt-10 w-full flex justify-center px-4 sm:px-6 md:px-10">
-      <div className="w-full max-w-6xl border border-[#054738] p-6 md:p-10 text-center bg-white rounded-lg">
+      <div className="w-full max-w-6xl border border-[#054738] p-6 md:p-10 text-center bg-white">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
           Essential Aspects Driving Our Success
