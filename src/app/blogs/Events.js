@@ -10,7 +10,7 @@ export const events = [
   },
   {
     id: 2,
-    slug: "/2",
+    slug: "2",
     date: `February 28, 2025`,
     image: `/event2.png`,
     title: `Present new objectives and new talents.`,
@@ -22,7 +22,7 @@ that reflect the evolving landscape of our industry.`,
   },
   {
     id: 3,
-    slug: "/3",
+    slug: "3",
     date: `December 3, 2024`,
     image: `/event3.png`,
     title: `New alliance with leading
@@ -35,7 +35,7 @@ that reflect the evolving landscape of our industry.`,
   },
   {
     id: 4,
-    slug: "/4",
+    slug: "4",
     date: `March 11, 2025`,
     image: `/event4.png`,
     title: `Innovative Interior Trends That
@@ -48,7 +48,7 @@ that reflect the evolving landscape of our industry.`,
   },
   {
     id: 5,
-    slug: "/5",
+    slug: "5",
     date: `January 15, 2025`,
     image: `/event5.png`,
     title: `Empowering Growth with
@@ -61,7 +61,7 @@ that reflect the evolving landscape of our industry.`,
   },
   {
     id: 6,
-    slug: "/6",
+    slug: "6",
     date: `March 12, 2025`,
     image: `/event6.png`,
     title: `How Technology is

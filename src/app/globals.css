@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -46,24 +46,29 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* MyFont (custom set) */
 @font-face {
-  font-family: 'MyFont';
-  src: url('/fonts/MyFont/MyFont-Regular.otf') format('opentype');
+  font-family: "MyFont";
+  src: url("/fonts/MyFont/MyFont-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'MyFont';
-  src: url('/fonts/MyFont/MyFont-Bold.otf') format('opentype');
+  font-family: "MyFont";
+  src: url("/fonts/MyFont/MyFont-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'MyFont';
-  src: url('/fonts/MyFont/MyFont-Italic.otf') format('opentype');
+  font-family: "MyFont";
+  src: url("/fonts/MyFont/MyFont-Italic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
 }
@@ -91,8 +96,12 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -184,8 +193,8 @@ body {
   }
 }
 
-
-.wrapper_x1:before, .wrapper_x1:after {
+.wrapper_x1:before,
+.wrapper_x1:after {
   content: "";
   position: absolute;
   top: 0;

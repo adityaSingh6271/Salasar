@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar";
 
-
 const ExoticaHero = () => {
   return (
     <div className="relative min-h-screen bg-white overflow-hidden">
@@ -49,7 +48,8 @@ const ExoticaHero = () => {
                 fontFamily: "Instrument Sans, sans-serif",
               }}
             >
-             Good buildings come from good people, and all problems are solved by good design.
+              Good buildings come from good people, and all problems are solved
+              by good design.
             </p>
           </div>
         </div>

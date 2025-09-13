@@ -17,13 +17,15 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-[9999] bg-black/10 backdrop-blur border-b border-white/10 px-6 md:px-10 py-3 flex items-center justify-between">
       {/* Logo */}
-      <Image
-        src="/SalasarLogo.png"
-        alt="Salasar Logo"
-        width={122}
-        height={50}
-        priority
-      />
+      <Link href="/" className="flex items-center">
+        <Image
+          src="/SalasarLogo.png"
+          alt="Salasar Logo"
+          width={122}
+          height={50}
+          priority
+        />
+      </Link>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-6 lg:gap-10">
@@ -88,7 +90,9 @@ export default function Navbar() {
       {/* Mobile Menu Drawer with transition */}
       <div
         className={`absolute top-full left-0 w-full bg-white shadow-md md:hidden flex flex-col items-center gap-6 py-6 transform transition-all duration-300 ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0 pointer-events-none"
+          isOpen
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-5 opacity-0 pointer-events-none"
         }`}
       >
         {navLinks.map((link) => (
